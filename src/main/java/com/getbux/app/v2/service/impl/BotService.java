@@ -42,10 +42,8 @@ public class BotService implements IBotService {
 	public BotTradingResponse<?> getAllActiveTrades() {
 		log.debug("Getting all currently active trades...");
 		List<BotTradingRequest> activeTrades = repo.findAll();
-		if(CollectionUtils.isEmpty(activeTrades)) {
-			return BotTradingResponse.success("No active trades found.");
-		}
-		return BotTradingResponse.success(repo.findAll());
+		return CollectionUtils.isEmpty(activeTrades) ? BotTradingResponse.success("No active trades found.")
+													 : BotTradingResponse.success(repo.findAll());
 	}
 
 }
