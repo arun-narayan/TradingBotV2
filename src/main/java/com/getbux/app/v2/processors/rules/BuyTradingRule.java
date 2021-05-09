@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import com.getbux.app.v2.entities.Amount;
@@ -24,6 +25,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Service
 @Primary
+@Order(0)
 @ResourceProcessor
 public class BuyTradingRule extends AbstractTradingRule {
 
@@ -40,7 +42,7 @@ public class BuyTradingRule extends AbstractTradingRule {
 
 	@Override
 	public boolean apply(BotTradingRequest tradingRequest) {
-
+		
 		boolean unsubscribe = false;
 		
 		if (!tradingRequest.isBought()) {
