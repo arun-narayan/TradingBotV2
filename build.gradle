@@ -1,0 +1,64 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.10.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'idea'
+	id 'eclipse'
+}
+
+group = 'com.getbux.'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    
+    implementation "org.springframework.boot:spring-boot-starter-web"
+	
+	implementation "javax.websocket:javax.websocket-client-api:1.1"
+    implementation "org.glassfish.tyrus:tyrus-client:$version_tyrus"
+    implementation "org.glassfish.tyrus:tyrus-server:$version_tyrus"
+    
+    implementation "org.apache.httpcomponents:httpclient:$version_httpclient"
+	
+	// to convert our Java object to/from JSON
+	implementation "com.fasterxml.jackson.core:jackson-databind:$version_jackson"
+    implementation "com.fasterxml.jackson.core:jackson-core:$version_jackson"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$version_jackson"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-joda:$version_jackson"
+	
+    // logging
+    implementation "org.slf4j:slf4j-api:$version_slfj"
+	implementation "org.slf4j:log4j-over-slf4j:$version_slfj"
+    implementation "ch.qos.logback:logback-classic:$version_logback"
+    implementation "ch.qos.logback:logback-core:$version_logback"
+
+	// Apache commons
+	implementation "org.apache.commons:commons-collections4:4.4"
+	implementation "org.apache.commons:commons-lang3:3.12.0"
+	
+    testImplementation "junit:junit:$version_junit"
+	
+	compileOnly "org.projectlombok:lombok"
+	annotationProcessor "org.projectlombok:lombok"
+}
+
+bootRun {
+	jvmArgs = ["-Xdebug", "-Xrunjdwp:server=y,transport=dt_socket,address=8000,suspend=n"]
+	if (project.hasProperty('args')) {
+		args project.args.split('\\s+')
+	}
+}
+
+test {
+	useJUnitPlatform()
+}

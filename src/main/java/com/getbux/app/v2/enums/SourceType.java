@@ -1,0 +1,15 @@
+package com.getbux.app.v2.enums;
+
+public enum SourceType {
+
+	INANZEN,
+	HOME_ALL, 
+	HOME_FRIENDS, 
+	HOME_STARS, 
+	NEWS_ITEM,
+	OTHER, 
+	PRODUCTS_ALL, 
+	PRODUCTS_CURATED, 
+	PRODUCTS_FAVORITES, 
+	SHARED_TRADE
+}
