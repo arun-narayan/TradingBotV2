@@ -19,13 +19,6 @@ public class BotTradingResponse<T> {
 	private T result;
 	private String status;
 	private boolean ok;
-	private String productId;
-	
-	public BotTradingResponse(T result, String status, boolean ok) {
-		this.result = result;
-		this.status = status;
-		this.ok = ok;
-	}
 	
 	public static BotTradingResponse<String> success() {
 		return success(Constants.TASK_SUBMITTED);

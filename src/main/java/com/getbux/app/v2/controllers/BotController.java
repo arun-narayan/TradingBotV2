@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,7 @@ public class BotController {
 	
 	@PostMapping(value = { "/trade" })
 	@ResponseStatus(HttpStatus.OK)
-	public BotTradingResponse<?> doTrade(HttpServletRequest request, HttpServletResponse response,
+	public BotTradingResponse<?> startTrade(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody(required = true) BotTradingRequest tradingRequest) throws Exception {
 		
 		if (!ConnectMessageHandler.isConnected()) {
@@ -61,5 +62,11 @@ public class BotController {
 		}
 		
 		return botResponse;
+	}
+	
+	@GetMapping(value = { "/active/trades" })
+	@ResponseStatus(HttpStatus.OK)
+	public BotTradingResponse<?> getActiveTrades(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return botService.getAllActiveTrades();
 	}
 }

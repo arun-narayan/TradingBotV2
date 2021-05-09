@@ -25,7 +25,6 @@ public class ProductRepository {
      * @param {@link BotTradingRequest}
      */
     public void save(BotTradingRequest tradingRequest) {
-    	log.debug("Saving product {}", tradingRequest.getProductId());
         products.put(tradingRequest.getProductId(), tradingRequest);
     }
 
@@ -36,7 +35,6 @@ public class ProductRepository {
      * @return {@link BotTradingRequest}
      */
     public BotTradingRequest findById(String id) {
-    	log.debug("Finding product {}", id);
         if (!products.containsKey(id)) {
             throw new BotException("Could not find product {}" + id);
         }
@@ -51,7 +49,6 @@ public class ProductRepository {
      * @return List of {@link BotTradingRequest}
      */
     public List<BotTradingRequest> findAll() {
-    	log.debug("Finding trading request for all products");
         return products.values().parallelStream().collect(Collectors.toList());
     }
     
@@ -61,8 +58,6 @@ public class ProductRepository {
      * @param id
      */
     public void deleteById(String id) {
-    	log.debug("Deleting product {}", id);
-    	
     	if (!products.containsKey(id)) {
             log.warn("Could not delete product {}" + id);
             return;

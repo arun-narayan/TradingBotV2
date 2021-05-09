@@ -1,9 +1,13 @@
 package com.getbux.app.v2.service.impl;
 
+import java.util.List;
+
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.getbux.app.v2.entities.BotTradingRequest;
+import com.getbux.app.v2.entities.BotTradingResponse;
 import com.getbux.app.v2.repositories.ProductRepository;
 import com.getbux.app.v2.service.IBotService;
 import com.getbux.app.v2.service.ISubscriptionService;
@@ -32,6 +36,16 @@ public class BotService implements IBotService {
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
+	}
+	
+	@Override
+	public BotTradingResponse<?> getAllActiveTrades() {
+		log.debug("Getting all currently active trades...");
+		List<BotTradingRequest> activeTrades = repo.findAll();
+		if(CollectionUtils.isEmpty(activeTrades)) {
+			return BotTradingResponse.success("No active trades found.");
+		}
+		return BotTradingResponse.success(repo.findAll());
 	}
 
 }

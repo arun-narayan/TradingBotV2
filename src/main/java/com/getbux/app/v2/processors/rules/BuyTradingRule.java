@@ -59,7 +59,6 @@ public class BuyTradingRule extends AbstractTradingRule {
 
 			try {
 				BotTradingResponse<?> response = tradeService.buyOrder(request);
-				response.setProductId(tradingRequest.getProductId());
 
 				if (response.isOk()) {
 					BuyOrderResponse buyOrderResponse = JsonSerializable.fromJsonObject(response.getResult(),

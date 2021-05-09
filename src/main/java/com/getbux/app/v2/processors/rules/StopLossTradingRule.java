@@ -41,7 +41,6 @@ public class StopLossTradingRule extends AbstractTradingRule {
 		if (tradingRequest.isBought()) {
 			try {
 				BotTradingResponse<?> response = tradeService.sellOrder(tradingRequest.getPositionId());
-				response.setProductId(tradingRequest.getProductId());
 				
 				if (response.isOk()) {
 					SellOrderResponse sellOrderResponse = JsonSerializable.fromJsonObject(response.getResult(),
