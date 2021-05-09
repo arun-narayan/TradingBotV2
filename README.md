@@ -1,4 +1,4 @@
-# BUX Trading Bot Application
+# Trading Bot Application
 ### (A Spring Boot Application)
 
 ## Intro
