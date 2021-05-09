@@ -7,16 +7,16 @@ A very basic Trading Bot that tracks the price of a certain product and will exe
 ## Importing the project
 ### (Only applicable if you are uploading via an archive file)
 
-* Extract contents of BUXTradingBot.zip file and import it it as a gradle project in your IDE.
-* After importing please refresh your gradle project by right clicking on the BUXTradingBot project and selecting `Gradle -> Refresh Gradle Project`
+* Extract contents of TradingBotV2.zip file and import it it as a gradle project in your IDE.
+* After importing please refresh your gradle project by right clicking on the TradingBotV2 project and selecting `Gradle -> Refresh Gradle Project`
 	
 ## Running the application
 	
-- Main class: `BuxTradingBotApplication.java`
+- Main class: `TradingBotV2Application.java`
 - Bot Configurations: `bot.properties`
 - Port/Log Configurations: `application.properties`
 
-* BUX Trading Bot runs a Spring Boot Application
+* Trading Bot runs a Spring Boot Application
 	* `BotController.java` is the ONLY Controller class that handles the incoming requests
 	
 	
