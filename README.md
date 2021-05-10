@@ -39,13 +39,20 @@ A very basic Trading Bot that tracks the price of a certain product and will exe
 		- Response: {"result":"Auto trading request submitted successfully.","status":"Success","ok":true
 		- The above response will be visible if initial validation is successful and the trading request is successfully submitted.
 
+## Supporting Features
+
+* Supports multiple trading requests simultaneously. 
+* API to view all currently active trades 
+  Request: `(GET) http://localhost:8081/api/getbux/active/trades`
+  Response: `{"result":"No active trades found.","status":"Success","ok":true}`
+* If upper and/or lower selling price is not set, the bot will automatically set the Profit Target (price at which we can make max profit) and Sell Loss (price at which we can make min loss) limits based on the configured `profitLossRatio` for the given risk per share (Refer `bot.properties`).
+
 ## Limitations of the application
 
-* The application does not run multiple trading requests in parallel.If you have to submit another trading request then please let the current request complete or cancel the current request.
 * The application will try to connect to websocket URL only once. No support for a re-try.
-* The application will run forever until the buy price is reached. No support for timeout at this moment
-* The application will run forever until either of the lower or upper limit is reached. No support for timeout at this moment.
-* The application will quit and stop processing the job as soon as it encounters an exception while submitting a buy order or sell order request. No support for a re-try.
+* The bot will run forever until the buy price is reached. No support for timeout at this moment.
+* The bot will run forever until either of the lower or upper limit is reached. No support for timeout at this moment.
+* The bot will stop processing the job as soon as it encounters an exception while submitting a buy order or sell order request. No support for a re-try.
 * The application defaults to a fixed margin for lower and upper selling price. 
 
 ##### All the above mentioned limitations can be added as an enhancement and will make the application more robust.
