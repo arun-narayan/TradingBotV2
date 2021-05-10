@@ -53,7 +53,6 @@ public class BotController {
 		if (botResponse.isOk()) {
 			// open a separate thread to process the incoming trading request and return submission status
 			Callable<BotTradingResponse<?>> callable = () -> {
-				log.debug("Starting Bot service...");
 				botService.start(tradingRequest);
 				return null;
 			};

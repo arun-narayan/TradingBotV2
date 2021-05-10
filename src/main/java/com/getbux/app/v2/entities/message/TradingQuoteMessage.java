@@ -32,7 +32,7 @@ public class TradingQuoteMessage extends Message {
     
     @Override
     public String toString() {
-        return "TradingQuoteBody [securityId=" + body.securityId + ", currentPrice=" + body.currentPrice + "]";
+        return "Got a new trading quote for product " + body.securityId + " with current price " + body.currentPrice;
     }
     
     public String productId() {

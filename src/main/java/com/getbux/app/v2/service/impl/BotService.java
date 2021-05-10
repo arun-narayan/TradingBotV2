@@ -26,6 +26,8 @@ public class BotService implements IBotService {
 	
 	@Override
 	public void start(BotTradingRequest tradingRequest) {
+		log.debug("Starting trading bot...");
+		
 		try {
 			// Save the incoming trading request for the given product id
 			repo.save(tradingRequest);
@@ -41,7 +43,9 @@ public class BotService implements IBotService {
 	@Override
 	public BotTradingResponse<?> getAllActiveTrades() {
 		log.debug("Getting all currently active trades...");
+		
 		List<BotTradingRequest> activeTrades = repo.findAll();
+		
 		return CollectionUtils.isEmpty(activeTrades) ? BotTradingResponse.success("No active trades found.")
 													 : BotTradingResponse.success(repo.findAll());
 	}

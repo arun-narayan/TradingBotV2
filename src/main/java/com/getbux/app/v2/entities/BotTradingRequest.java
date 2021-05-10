@@ -29,7 +29,7 @@ public class BotTradingRequest {
 	
 	@Override
     public String toString() {
-		return "TradingBotRequest [productId=" + productId + ", buyPrice=" + buyPrice + ", lowerLimit=" + lowerLimit
+		return "Trading on productId " + productId + " at [buyPrice=" + buyPrice + ", lowerLimit=" + lowerLimit
 				+ ", upperLimit=" + upperLimit + "]";
     }
 	

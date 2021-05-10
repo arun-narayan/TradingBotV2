@@ -36,7 +36,7 @@ public class ProductRepository {
      */
     public BotTradingRequest findById(String id) {
         if (!products.containsKey(id)) {
-            throw new BotException("Could not find product {}" + id);
+            throw new BotException("Could not find product " + id);
         }
 
         return products.get(id);

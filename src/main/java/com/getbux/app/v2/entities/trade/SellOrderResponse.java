@@ -33,7 +33,7 @@ public class SellOrderResponse {
     
 	@Override
 	public String toString() {
-		return "Position (" + this.positionId + ") closed for product " + this.product.getSecurityId() + "" + getProfitAndLossString();
+		return "Position " + this.positionId + " closed for product " + this.product.getSecurityId() + "" + getProfitAndLossString();
 	}
     
 	public String getProfitAndLossString() {

@@ -11,6 +11,7 @@ import com.getbux.app.v2.config.TradeConfig;
 import com.getbux.app.v2.entities.BotTradingRequest;
 import com.getbux.app.v2.entities.message.TradingQuoteMessage;
 import com.getbux.app.v2.enums.MsgType;
+import com.getbux.app.v2.exceptions.BotException;
 import com.getbux.app.v2.processors.AbstractMessageHandler;
 import com.getbux.app.v2.processors.AbstractTradingRule;
 import com.getbux.app.v2.processors.ResourceProcessor;
@@ -39,12 +40,7 @@ public class TradingQuoteMessageHandler extends AbstractMessageHandler {
 	
 	@Override
 	public void handle(Session session, String message) {
-		log.debug("Got trading quote message: {} ", message);
-		processMessage(message);
-	}
-	
-	private void processMessage(String message) {
-
+		
 		TradingQuoteMessage quote = JsonSerializable.fromJson(message, TradingQuoteMessage.class);
 		String currentProductId = quote.getBody().getSecurityId();
 
@@ -53,17 +49,14 @@ public class TradingQuoteMessageHandler extends AbstractMessageHandler {
 			try {
 				// Find the current product id in in-memory repo
 				BotTradingRequest tradingRequest = repo.findById(currentProductId);
-				log.debug("Got trading request {} for product {} from the in-memory repo", JsonSerializable.toJson(tradingRequest), currentProductId);
-
-				if (!currentProductId.equals(tradingRequest.getProductId())) {
-					log.warn("Received quote for other product with id = {}, Skipping quote update.", currentProductId);
-					return;
-				}
+				log.info(quote.toString());
+				log.debug("Got existing trading request for product {} from the in-memory repo", currentProductId);
 
 				tradingRequest.configureTradingRequest(quote.currentPrice(), tradeConfig.stopLoss(),
 						tradeConfig.profitTarget());
-
-				log.debug("Applying trading rules...");
+				log.info(tradingRequest.toString());
+				
+				log.info("Applying trading rules...");
 				tradingRules.stream().filter(rule -> rule.shouldApply(tradingRequest, quote.currentPrice()))
 						.filter(rule -> rule.apply(tradingRequest))
 						.forEach(rule -> {
@@ -72,11 +65,13 @@ public class TradingQuoteMessageHandler extends AbstractMessageHandler {
 							subscriptionService.unsubscribeFrom(tradingRequest.getProductId());
 						});
 
+			} catch (BotException e) {
+				log.warn(e.getMessage() + ". Skipping quote update.");
 			} catch (Exception e) {
 				log.error(e.getMessage(), e);
 			}
 		}
-
+		
 	}
 	
 	@Override

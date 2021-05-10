@@ -80,7 +80,6 @@ public class BotClientEndpoint {
 	@OnMessage
 	public void onMessage(Session session, String message) {
 		Message msg = JsonSerializable.fromJson(message, Message.class);
-		log.debug("msg type: " + msg.getT());
 		AbstractMessageHandler handler = handlers.get(MsgType.parse(msg.getT()));
 		if(null != handler) {
 			handler.handle(session, message);

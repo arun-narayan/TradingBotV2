@@ -22,7 +22,7 @@ public class ConnectMessageHandler extends AbstractMessageHandler {
 	@Override
 	public void handle(Session session, String message) {
 		ConnectSuccessBody msg = JsonSerializable.fromJson(message, ConnectSuccessBody.class);
-		log.debug("Websocket connection established with session id {}", msg.getBody().getSessionId());
+		log.info("Websocket connection established with session id {}", msg.getBody().getSessionId());
 		connected = true;
 	}
 	

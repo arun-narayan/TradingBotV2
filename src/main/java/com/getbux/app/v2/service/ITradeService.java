@@ -12,7 +12,7 @@ public interface ITradeService {
 	 * 
 	 * @throws Exception
 	 */
-	BotTradingResponse<?> buyOrder(BuyOrderRequest request) throws Exception;
+	BotTradingResponse<?> buyOrder(BuyOrderRequest request);
 
 	/**
 	 * 
@@ -21,6 +21,6 @@ public interface ITradeService {
 	 * 
 	 * @throws Exception
 	 */
-	BotTradingResponse<?> sellOrder(String positionId) throws Exception;
+	BotTradingResponse<?> sellOrder(String positionId);
 
 }

@@ -42,7 +42,7 @@ public class BuyTradingRule extends AbstractTradingRule {
 
 	@Override
 	public boolean apply(BotTradingRequest tradingRequest) {
-		
+		log.debug("Applying BuyTradingRule...");
 		boolean unsubscribe = false;
 		
 		if (!tradingRequest.isBought()) {
@@ -66,14 +66,15 @@ public class BuyTradingRule extends AbstractTradingRule {
 					// Set the position id
 					tradingRequest.setBought(true);
 					tradingRequest.setPositionId(buyOrderResponse.getPositionId());
-					log.debug(buyOrderResponse.toString());
+					log.info(buyOrderResponse.toString());
 					
+					// Upsert the existing trading request with updated position id
 					repo.save(tradingRequest);
 					
 				} else {
 					ErrorResponse errorResponse = JsonSerializable.fromJsonObject(response.getResult(),
 							ErrorResponse.class);
-					log.debug(errorResponse.toString());
+					log.info(errorResponse.toString());
 					unsubscribe = true;
 
 				}

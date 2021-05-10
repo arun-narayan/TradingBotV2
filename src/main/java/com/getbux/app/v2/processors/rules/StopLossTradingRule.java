@@ -35,7 +35,7 @@ public class StopLossTradingRule extends AbstractTradingRule {
 
 	@Override
 	public boolean apply(BotTradingRequest tradingRequest) {
-		
+		log.debug("Applying StopLossTradingRule...");
 		boolean unsubscribe = true;
 		
 		if (tradingRequest.isBought()) {
@@ -45,11 +45,11 @@ public class StopLossTradingRule extends AbstractTradingRule {
 				if (response.isOk()) {
 					SellOrderResponse sellOrderResponse = JsonSerializable.fromJsonObject(response.getResult(),
 							SellOrderResponse.class);
-					log.debug(sellOrderResponse.toString());
+					log.info(sellOrderResponse.toString());
 				} else {
 					ErrorResponse errorResponse = JsonSerializable.fromJsonObject(response.getResult(),
 							ErrorResponse.class);
-					log.debug(errorResponse.toString());
+					log.info(errorResponse.toString());
 				}
 				
 			} catch (Exception e) {
@@ -60,6 +60,7 @@ public class StopLossTradingRule extends AbstractTradingRule {
 				tradingRequest.setBought(false);
 				tradingRequest.setPositionId(null);
 				
+				// Upsert the existing trading request
 				repo.save(tradingRequest);
 			}
 

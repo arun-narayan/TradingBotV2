@@ -45,7 +45,6 @@ public class TradeService implements ITradeService {
 	private final RestTemplate template = new RestTemplate();
 
 	private HttpHeaders getHeaders() {
-		log.debug("Setting headers with token {}", authConfig.getToken());
 		HttpHeaders headers = new HttpHeaders();
 		headers.add(HttpHeaders.AUTHORIZATION, authConfig.getToken());
 		headers.add(HttpHeaders.ACCEPT_LANGUAGE, authConfig.getLanguage());
@@ -55,13 +54,13 @@ public class TradeService implements ITradeService {
 	}
 	
 	@Override
-	public BotTradingResponse<?> buyOrder(BuyOrderRequest request) throws Exception {
+	public BotTradingResponse<?> buyOrder(BuyOrderRequest request) {
 		log.info("Opening position for product {}", request.getProductId());
 		return parseResponse(botConfig.getBuyOrderUrl(), request, HttpMethod.POST, BuyOrderResponse.class);
 	}
 	
 	@Override
-	public BotTradingResponse<?> sellOrder(String positionId) throws Exception {
+	public BotTradingResponse<?> sellOrder(String positionId) {
 		log.info("Closing position for positionId {}", positionId);
 		return parseResponse(botConfig.sellOrderUrl(positionId), null, HttpMethod.DELETE, SellOrderResponse.class);
 	}
