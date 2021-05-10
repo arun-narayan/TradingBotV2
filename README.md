@@ -69,3 +69,10 @@ A very basic Trading Bot that tracks the price of a certain product and will exe
 - apache commons-collections4 - v4.4
 - apache commons-lang3 - v3.12.0
 - junit - v4.12
+
+## References
+
+- https://www.thebalance.com/where-to-take-profit-when-day-trading-exit-strategy-4117900
+- https://www.openshift.com/blog/how-to-build-java-websocket-applications-using-the-jsr-356-api
+
+
