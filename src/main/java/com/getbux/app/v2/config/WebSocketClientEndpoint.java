@@ -34,8 +34,8 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Component
-@ClientEndpoint(configurator = BotClientEndpoint.SocketConfig.class)
-public class BotClientEndpoint {
+@ClientEndpoint(configurator = WebSocketClientEndpoint.SocketConfig.class)
+public class WebSocketClientEndpoint {
 	
 	@Autowired
 	private BotConfig botConfig;
