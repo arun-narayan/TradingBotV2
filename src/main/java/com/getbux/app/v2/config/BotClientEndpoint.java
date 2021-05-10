@@ -1,4 +1,4 @@
-package com.getbux.app.v2;
+package com.getbux.app.v2.config;
 
 import java.io.IOException;
 import java.net.URI;
@@ -25,8 +25,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-import com.getbux.app.v2.config.AuthConfig;
-import com.getbux.app.v2.config.BotConfig;
 import com.getbux.app.v2.entities.message.Message;
 import com.getbux.app.v2.enums.MsgType;
 import com.getbux.app.v2.processors.AbstractMessageHandler;
