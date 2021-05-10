@@ -42,6 +42,7 @@ A very basic Trading Bot that tracks the price of a certain product and will exe
 ## Supporting Features
 
 * Supports multiple trading requests simultaneously. 
+* In-memory caching of user trading requests via `ProductRepository`. This enables application to support simultaneous trading on different products.
 * API to view all currently active trades 
   - Request: `(GET) http://localhost:8081/api/getbux/active/trades`
   - Response: `{"result":"No active trades found.","status":"Success","ok":true}`
