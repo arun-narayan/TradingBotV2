@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 
 import com.getbux.app.v2.entities.message.Message;
 import com.getbux.app.v2.enums.MsgType;
-import com.getbux.app.v2.processors.AbstractMessageHandler;
+import com.getbux.app.v2.processor.AbstractMessageHandler;
 import com.getbux.app.v2.serializers.JsonSerializable;
 
 import lombok.extern.log4j.Log4j2;

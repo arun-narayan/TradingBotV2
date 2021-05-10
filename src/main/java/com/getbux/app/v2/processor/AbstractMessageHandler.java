@@ -1,4 +1,4 @@
-package com.getbux.app.v2.processors;
+package com.getbux.app.v2.processor;
 
 import javax.websocket.Session;
 

@@ -1,4 +1,4 @@
-package com.getbux.app.v2.processors.rules;
+package com.getbux.app.v2.processor.rules;
 
 import java.math.BigDecimal;
 
@@ -14,9 +14,9 @@ import com.getbux.app.v2.entities.ErrorResponse;
 import com.getbux.app.v2.entities.trade.BuyOrderRequest;
 import com.getbux.app.v2.entities.trade.BuyOrderResponse;
 import com.getbux.app.v2.enums.DirectionType;
-import com.getbux.app.v2.processors.AbstractTradingRule;
-import com.getbux.app.v2.processors.ResourceProcessor;
-import com.getbux.app.v2.repositories.ProductRepository;
+import com.getbux.app.v2.processor.AbstractTradingRule;
+import com.getbux.app.v2.processor.ResourceProcessor;
+import com.getbux.app.v2.repository.ProductRepository;
 import com.getbux.app.v2.serializers.JsonSerializable;
 import com.getbux.app.v2.service.ITradeService;
 

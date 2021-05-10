@@ -1,4 +1,4 @@
-package com.getbux.app.v2.processors.rules;
+package com.getbux.app.v2.processor.rules;
 
 import java.math.BigDecimal;
 
@@ -9,9 +9,9 @@ import com.getbux.app.v2.entities.BotTradingRequest;
 import com.getbux.app.v2.entities.BotTradingResponse;
 import com.getbux.app.v2.entities.ErrorResponse;
 import com.getbux.app.v2.entities.trade.SellOrderResponse;
-import com.getbux.app.v2.processors.AbstractTradingRule;
-import com.getbux.app.v2.processors.ResourceProcessor;
-import com.getbux.app.v2.repositories.ProductRepository;
+import com.getbux.app.v2.processor.AbstractTradingRule;
+import com.getbux.app.v2.processor.ResourceProcessor;
+import com.getbux.app.v2.repository.ProductRepository;
 import com.getbux.app.v2.serializers.JsonSerializable;
 import com.getbux.app.v2.service.ITradeService;
 
@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Service
 @ResourceProcessor
-public class StopLossTradingRule extends AbstractTradingRule {
+public class ProfitTargetTradingRule extends AbstractTradingRule {
 
 	@Autowired
 	ITradeService tradeService;
@@ -30,12 +30,12 @@ public class StopLossTradingRule extends AbstractTradingRule {
 
 	@Override
 	public boolean shouldApply(BotTradingRequest tradingRequest, BigDecimal currentPrice) {
-		return tradingRequest.isBought() && 0 >= currentPrice.compareTo(tradingRequest.getLowerLimit());
+		return tradingRequest.isBought() && 0 <= currentPrice.compareTo(tradingRequest.getUpperLimit());
 	}
 
 	@Override
 	public boolean apply(BotTradingRequest tradingRequest) {
-		log.debug("Applying StopLossTradingRule...");
+		log.debug("Applying ProfitTargetTradingRule...");
 		boolean unsubscribe = true;
 		
 		if (tradingRequest.isBought()) {
@@ -63,7 +63,6 @@ public class StopLossTradingRule extends AbstractTradingRule {
 				// Upsert the existing trading request
 				repo.save(tradingRequest);
 			}
-
 		}
 		
 		return unsubscribe;

@@ -1,4 +1,4 @@
-package com.getbux.app.v2.processors.config;
+package com.getbux.app.v2.processor.config;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.getbux.app.v2.enums.MsgType;
-import com.getbux.app.v2.processors.AbstractMessageHandler;
-import com.getbux.app.v2.processors.ResourceProcessor;
+import com.getbux.app.v2.processor.AbstractMessageHandler;
+import com.getbux.app.v2.processor.ResourceProcessor;
 
 @Configuration
 public class MessageHandlerConfig {

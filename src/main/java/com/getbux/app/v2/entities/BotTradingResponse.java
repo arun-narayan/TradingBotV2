@@ -2,7 +2,7 @@ package com.getbux.app.v2.entities;
 
 import org.glassfish.grizzly.http.util.HttpStatus;
 
-import com.getbux.app.v2.commons.Constants;
+import com.getbux.app.v2.common.Constants;
 import com.getbux.app.v2.enums.Status;
 
 import lombok.AllArgsConstructor;

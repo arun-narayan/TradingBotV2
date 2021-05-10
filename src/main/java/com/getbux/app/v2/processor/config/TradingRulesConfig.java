@@ -1,4 +1,4 @@
-package com.getbux.app.v2.processors.config;
+package com.getbux.app.v2.processor.config;
 
 import java.util.Collections;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.getbux.app.v2.processors.AbstractTradingRule;
-import com.getbux.app.v2.processors.ResourceProcessor;
+import com.getbux.app.v2.processor.AbstractTradingRule;
+import com.getbux.app.v2.processor.ResourceProcessor;
 
 @Configuration
 public class TradingRulesConfig {

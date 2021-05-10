@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.getbux.app.v2.commons.Constants;
+import com.getbux.app.v2.common.Constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

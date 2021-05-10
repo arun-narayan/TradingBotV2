@@ -1,4 +1,4 @@
-package com.getbux.app.v2.exceptions;
+package com.getbux.app.v2.exception;
 
 public class BotException extends RuntimeException {
 

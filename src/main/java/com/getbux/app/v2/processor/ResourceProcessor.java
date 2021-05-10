@@ -4,7 +4,7 @@
  * Proprietary and confidential
  */
 
-package com.getbux.app.v2.processors;
+package com.getbux.app.v2.processor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

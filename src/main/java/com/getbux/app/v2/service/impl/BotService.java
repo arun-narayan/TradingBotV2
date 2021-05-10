@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.getbux.app.v2.entities.BotTradingRequest;
 import com.getbux.app.v2.entities.BotTradingResponse;
-import com.getbux.app.v2.repositories.ProductRepository;
+import com.getbux.app.v2.repository.ProductRepository;
 import com.getbux.app.v2.service.IBotService;
 import com.getbux.app.v2.service.ISubscriptionService;
 

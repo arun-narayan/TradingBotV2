@@ -4,7 +4,7 @@
  * Proprietary and confidential
  */
 
-package com.getbux.app.v2.controllers;
+package com.getbux.app.v2.controller;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
@@ -22,10 +22,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.getbux.app.v2.commons.Constants;
+import com.getbux.app.v2.common.Constants;
 import com.getbux.app.v2.entities.BotTradingRequest;
 import com.getbux.app.v2.entities.BotTradingResponse;
-import com.getbux.app.v2.processors.message.ConnectMessageHandler;
+import com.getbux.app.v2.processor.message.ConnectMessageHandler;
 import com.getbux.app.v2.service.IBotService;
 
 import lombok.extern.log4j.Log4j2;

@@ -11,7 +11,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.getbux.app.v2.commons.Constants;
+import com.getbux.app.v2.common.Constants;
 import com.getbux.app.v2.config.AuthConfig;
 import com.getbux.app.v2.config.BotConfig;
 import com.getbux.app.v2.entities.BotTradingResponse;

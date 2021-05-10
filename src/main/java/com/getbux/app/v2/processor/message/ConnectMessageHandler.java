@@ -1,4 +1,4 @@
-package com.getbux.app.v2.processors.message;
+package com.getbux.app.v2.processor.message;
 
 import javax.websocket.Session;
 
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.getbux.app.v2.entities.message.ConnectSuccessBody;
 import com.getbux.app.v2.enums.MsgType;
-import com.getbux.app.v2.processors.AbstractMessageHandler;
-import com.getbux.app.v2.processors.ResourceProcessor;
+import com.getbux.app.v2.processor.AbstractMessageHandler;
+import com.getbux.app.v2.processor.ResourceProcessor;
 import com.getbux.app.v2.serializers.JsonSerializable;
 
 import lombok.extern.log4j.Log4j2;

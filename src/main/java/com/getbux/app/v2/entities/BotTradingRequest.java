@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import org.apache.commons.lang3.StringUtils;
 import org.glassfish.grizzly.http.util.HttpStatus;
 
-import com.getbux.app.v2.commons.Constants;
+import com.getbux.app.v2.common.Constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

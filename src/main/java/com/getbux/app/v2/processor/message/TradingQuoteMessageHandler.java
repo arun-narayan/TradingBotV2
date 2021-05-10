@@ -1,4 +1,4 @@
-package com.getbux.app.v2.processors.message;
+package com.getbux.app.v2.processor.message;
 
 import java.util.List;
 
@@ -11,11 +11,11 @@ import com.getbux.app.v2.config.TradeConfig;
 import com.getbux.app.v2.entities.BotTradingRequest;
 import com.getbux.app.v2.entities.message.TradingQuoteMessage;
 import com.getbux.app.v2.enums.MsgType;
-import com.getbux.app.v2.exceptions.BotException;
-import com.getbux.app.v2.processors.AbstractMessageHandler;
-import com.getbux.app.v2.processors.AbstractTradingRule;
-import com.getbux.app.v2.processors.ResourceProcessor;
-import com.getbux.app.v2.repositories.ProductRepository;
+import com.getbux.app.v2.exception.BotException;
+import com.getbux.app.v2.processor.AbstractMessageHandler;
+import com.getbux.app.v2.processor.AbstractTradingRule;
+import com.getbux.app.v2.processor.ResourceProcessor;
+import com.getbux.app.v2.repository.ProductRepository;
 import com.getbux.app.v2.serializers.JsonSerializable;
 import com.getbux.app.v2.service.ISubscriptionService;
 

@@ -1,4 +1,4 @@
-package com.getbux.app.v2.commons;
+package com.getbux.app.v2.common;
 
 public class Constants {
 	
