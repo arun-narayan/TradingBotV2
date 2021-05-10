@@ -61,8 +61,8 @@ public class TradingQuoteMessageHandler extends AbstractMessageHandler {
 						.filter(rule -> rule.apply(tradingRequest))
 						.forEach(rule -> {
 							// Remove the product from the in-memory repo
-							repo.deleteById(tradingRequest.getProductId());
-							subscriptionService.unsubscribeFrom(tradingRequest.getProductId());
+							repo.deleteById(currentProductId);
+							subscriptionService.unsubscribeFrom(currentProductId);
 						});
 
 			} catch (BotException e) {
