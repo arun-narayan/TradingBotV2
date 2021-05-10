@@ -59,7 +59,7 @@ public class ProductRepository {
      */
     public void deleteById(String id) {
     	if (!products.containsKey(id)) {
-            log.warn("Could not delete product {}" + id);
+            log.warn("Could not delete product " + id);
             return;
         }
 
