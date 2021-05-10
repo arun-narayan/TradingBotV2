@@ -16,7 +16,7 @@ import com.getbux.app.v2.processor.AbstractMessageHandler;
 import com.getbux.app.v2.processor.AbstractTradingRule;
 import com.getbux.app.v2.processor.ResourceProcessor;
 import com.getbux.app.v2.repository.ProductRepository;
-import com.getbux.app.v2.serializers.JsonSerializable;
+import com.getbux.app.v2.serializer.JsonSerializable;
 import com.getbux.app.v2.service.ISubscriptionService;
 
 import lombok.extern.log4j.Log4j2;

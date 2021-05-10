@@ -4,7 +4,7 @@
  * Proprietary and confidential
  */
 
-package com.getbux.app.v2.serializers;
+package com.getbux.app.v2.serializer;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.DeserializationFeature;

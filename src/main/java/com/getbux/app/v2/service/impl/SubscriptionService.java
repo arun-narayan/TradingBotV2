@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.getbux.app.v2.entities.message.Subscription;
-import com.getbux.app.v2.serializers.JsonSerializable;
+import com.getbux.app.v2.serializer.JsonSerializable;
 import com.getbux.app.v2.service.ISubscriptionService;
 
 import lombok.extern.log4j.Log4j2;

@@ -19,8 +19,8 @@ import com.getbux.app.v2.entities.ErrorResponse;
 import com.getbux.app.v2.entities.trade.BuyOrderRequest;
 import com.getbux.app.v2.entities.trade.BuyOrderResponse;
 import com.getbux.app.v2.entities.trade.SellOrderResponse;
-import com.getbux.app.v2.serializers.JsonSerializable;
-import com.getbux.app.v2.serializers.JsonSerializers;
+import com.getbux.app.v2.serializer.JsonSerializable;
+import com.getbux.app.v2.serializer.JsonSerializers;
 import com.getbux.app.v2.service.ITradeService;
 
 import lombok.extern.log4j.Log4j2;

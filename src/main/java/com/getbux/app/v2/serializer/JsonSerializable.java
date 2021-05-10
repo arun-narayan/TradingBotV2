@@ -4,11 +4,11 @@
  * Proprietary and confidential
  */
 
-package com.getbux.app.v2.serializers;
+package com.getbux.app.v2.serializer;
 
-import static com.getbux.app.v2.serializers.JsonSerializers.DESERIALIZER;
-import static com.getbux.app.v2.serializers.JsonSerializers.NON_NULL_SERIALIZER;
-import static com.getbux.app.v2.serializers.JsonSerializers.SERIALIZER;
+import static com.getbux.app.v2.serializer.JsonSerializers.DESERIALIZER;
+import static com.getbux.app.v2.serializer.JsonSerializers.NON_NULL_SERIALIZER;
+import static com.getbux.app.v2.serializer.JsonSerializers.SERIALIZER;
 
 import java.io.IOException;
 import java.util.List;
