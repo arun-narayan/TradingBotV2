@@ -31,7 +31,7 @@ public class ProductRepository {
     /**
      * Finds {@link BotTradingRequest} by product id
      * 
-     * @param id 
+     * @param id of the product
      * @return {@link BotTradingRequest}
      */
     public BotTradingRequest findById(String id) {
@@ -55,7 +55,7 @@ public class ProductRepository {
     /**
      * Deletes product from in the in-memory cache
      * 
-     * @param id
+     * @param id of the product
      */
     public void deleteById(String id) {
     	if (!products.containsKey(id)) {
@@ -70,7 +70,7 @@ public class ProductRepository {
      * 
      * Deletes products from in the in-memory cache for the given product ids
      * 
-     * @param ids to be deleted
+     * @param ids of the products
      */
     public void deleteAll(List<String> ids) {
     	ids.parallelStream().forEach(id -> products.remove(id));
