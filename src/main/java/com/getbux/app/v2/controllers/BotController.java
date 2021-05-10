@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.getbux.app.v2.commons.Constants;
 import com.getbux.app.v2.entities.BotTradingRequest;
 import com.getbux.app.v2.entities.BotTradingResponse;
 import com.getbux.app.v2.processors.message.ConnectMessageHandler;
@@ -44,7 +45,7 @@ public class BotController {
 			@RequestBody(required = true) BotTradingRequest tradingRequest) throws Exception {
 		
 		if (!ConnectMessageHandler.isConnected()) {
-			return BotTradingResponse.failure("Could not establish connection with the trading system. Please try again later..");
+			return BotTradingResponse.failure(Constants.ERR_CONNECT_FAIL);
 		}
 		
 		log.debug("Got Trading Request: {}", tradingRequest.toString());
