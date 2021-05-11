@@ -43,12 +43,14 @@ public class TradingQuoteMessageHandler extends AbstractMessageHandler {
 		
 		TradingQuoteMessage quote = JsonSerializable.fromJson(message, TradingQuoteMessage.class);
 		String currentProductId = quote.getBody().getSecurityId();
-
-		synchronized (currentProductId) {
+		// Find the current product id in in-memory repo
+		
+		BotTradingRequest tradingRequest = repo.findById(currentProductId);
+		
+		synchronized (tradingRequest) {
 
 			try {
-				// Find the current product id in in-memory repo
-				BotTradingRequest tradingRequest = repo.findById(currentProductId);
+				
 				log.info(quote.toString());
 				log.debug("Got existing trading request for product {} from the in-memory repo", currentProductId);
 
